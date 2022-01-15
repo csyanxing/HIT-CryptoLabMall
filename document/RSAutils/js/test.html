@@ -1,0 +1,23 @@
+<html>
+<script src="RSAUtils.js"></script>
+<script src="jsbn.js"></script>
+<!-- <script src="./jsbn/index.js"></script> -->
+<script>
+    var modulusString = "146728024340719746322106248275489970172399885237007248537544435910724438259837462724201109895588166230877712938083134068111708154144193719025805548588492552639515372188915515488605378333762662255282101708026505879562300376893466634551337654628246492306221900014316859719558679393987564925083954314542258204129";
+    var privateExponentString = "77021186404160103650962039049291330910339210704236131714735243972118682957946326390252324375971193290426096411125562326795229929945962621449345598403059645097894237899802795242668428154764635727884137134613087741768178630486732531599211117701165051519386374446534830430372215719567944469156274026591468929537";
+    var publicExponentString = "65537";
+    var modulus = new BigInteger(modulusString);
+    var publicExponent = new BigInteger(publicExponentString);
+    var privateExponent = new BigInteger(privateExponentString);
+    var rsaPrivateKey = new RSAPrivateKey(privateExponent, modulus);
+    var rsaPublicKey = new RSAPublicKey(publicExponent, modulus);
+    console.log(rsaPrivateKey);
+    console.log(rsaPublicKey);
+
+    var plainText = "Aloha, world!";
+    var encryptedBigInteger = RSAEncrypt(rsaPublicKey, plainText);
+    console.log(encryptedBigInteger.toString())
+    var decryptText = RSADecrypt(rsaPrivateKey, encryptedBigInteger);
+</script>
+
+</html>

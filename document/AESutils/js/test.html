@@ -1,0 +1,23 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <script src="aeslib.js"></script>
+    <script src="aes.js"></script>
+    <script type="text/javascript">
+        var key = AESGenerateKey(32); //密钥长度必须是16的倍数
+        key = "^K#ojb^1Xfm\"4K6mgdU#3wp#INpS2U=i";
+        console.log(key)
+        var plainText = "Aloha, world!";
+        var cipherText = AESEncrypt(key, plainText)
+        console.log(cipherText)
+        var decrypt = AESDecrypt(key, cipherText)
+        console.log(decrypt)
+    </script>
+
+
+</body>
+
+</html>
